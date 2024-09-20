@@ -1,7 +1,9 @@
+import "./SearchBar.scss"
+
 const SearchBar = () => {
   return (
-    <div>
-      This is Searchbar
+    <div className="search-bar">
+      <p>Bural KArhan</p>
     </div>
   )
 }
