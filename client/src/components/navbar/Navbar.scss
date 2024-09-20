@@ -1,22 +1,84 @@
+@import "../../styles/responsive";
+
 .wrapper {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 4rem;
+    margin: 0px auto;
+    padding: 3.4rem 0;
+    background-color: rgba(0, 0, 0, .3);
+    backdrop-filter: blur(10px);
 
     .left {
-        display: flex;
-        flex: 2;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
+        font-weight: bold;
+        color: #dadada;
 
-        .menu-items ul {
-            display: flex;
+        .logo {
+            font-size: 2.5rem;
         }
     }
 
     .right {
         display: flex;
-        flex: 1;
+        align-items: center;
+        gap: 2rem;
+
+        .currency {
+            width: 10rem;
+            height: 3rem;
+            border: 1px solid lightgrey;
+            border-radius: 1rem;
+            background-color: #f1fff1;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            appearance: none; // Remove default styling
+
+            // Style for the select dropdown
+            &:focus {
+                outline: none;
+                border-color: #a0a0a0; // Change border color on focus
+            }
+
+            // Style for the options (limited support)
+            option {
+                background-color: #fff; // Background color for options
+                color: #333; // Text color for options
+                padding: 0.5rem; // Padding for options
+
+                img {
+                    width: 3rem;
+                }
+            }
+        }
+
+        .login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 75%;
+            gap: 1rem;
+            padding: .5rem 1rem;
+            background: transparent;
+            border: 1px solid #dadada;
+            border-radius: 10rem;
+            color: #dadada;
+
+            &:hover {
+                color: #fff;
+                border: 1px solid #fff;
+                background-color: rgb(160, 160, 160, .2);
+            }
+
+            &:active {
+                background-color: rgb(160, 160, 160, .6);
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.8); // Add glow effect
+            }
+
+            img {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
     }
 }

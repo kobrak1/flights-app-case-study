@@ -6,32 +6,20 @@ const Navbar = () => {
     <nav>
       <div className="wrapper">
         <div className="left">
-          <div className="logo">
-            <Link to="/">LOGO</Link>
-          </div>
-          <div className="menu-items">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="#">Flights</Link>
-              </li>
-              <li>
-                <Link to="#">About</Link>
-              </li>
-            </ul>
-          </div>
+          <Link to="/" className="logo">
+            LOGO
+          </Link>
         </div>
         <div className="right">
-          <span>
-            <Link to="#" className="login">
-              Login
-            </Link>
-            <Link to="#" className="register">
-              Register
-            </Link>
-          </span>
+          <select className="currency" aria-label="currency selection">
+            <option value="TRY">TRY</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+          <Link to="#" className="login">
+            <img src="/icons/user-white.png" alt="user img not found" />
+            Giriş yap
+          </Link>
         </div>
       </div>
     </nav>
