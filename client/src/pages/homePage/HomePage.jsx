@@ -1,10 +1,10 @@
 import SearchBar from '../../components/searchBar/SearchBar'
+import "./HomePage.scss";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className='home-page'>
       <SearchBar />
-      <p>Uganda</p>
     </div>
   )
 }
