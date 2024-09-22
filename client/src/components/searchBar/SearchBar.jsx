@@ -1,10 +1,12 @@
+import InputGroup from "../inputGroup/InputGroup";
 import { useState } from "react";
 import "./SearchBar.scss";
 
 const SearchBar = () => {
   const [isRoundTrip, setIsRoundTrip] = useState(false);
-  console.log('IsRoundTrip:', isRoundTrip)
-  
+
+  console.log("IsRoundTrip:", isRoundTrip);
+
   return (
     <div className="search-bar">
       <form className="flight-type">
@@ -28,32 +30,38 @@ const SearchBar = () => {
       </form>
       <form className="flight-details">
         <div className="place-inputs">
-          <div className="input-group clicked">
-            <label htmlFor="departure">Nereden</label>
-            <input type="text" id="departure" placeholder="Nereden" />
-          </div>
+          <InputGroup
+            type="text"
+            htmlFor="departure"
+            label="Nereden"
+            placeholder="Şehir veya havalimanı"
+          />
           <div className="flight-swapper">
             <button>
               <img src="/icons/swap.png" alt="swap icon not found" />
             </button>
           </div>
-          <div className="input-group clicked">
-            <label htmlFor="destination">Nereye</label>
-            <input type="text" id="destination" placeholder="Nereye" />
-          </div>
-        </div>
-        <div className="date-inputs">
-          <div className="input-group">
-            <label htmlFor="date1">Gidiş</label>
-            <input type="date" id="date1" placeholder="Nereden" />
-          </div>
-          <div className="input-group">
-            <label htmlFor="date2">Dönüş</label>
-            <input type="date" id="date2" placeholder="Nereden" />
-          </div>
-          <div className="input-group">
-            <label htmlFor="departure">Nereden</label>
-            <input type="text" id="departure" placeholder="Nereden" />
+          <InputGroup
+            type="text"
+            htmlFor="destination"
+            label="Nereye"
+            placeholder="Şehir veya havalimanı"
+          />
+          <InputGroup
+            type="date"
+            htmlFor="date1"
+            label="Gidiş"
+            placeholder=""
+          />
+          <InputGroup
+            type="date"
+            htmlFor="date1"
+            label="Dönüş"
+            placeholder=""
+          />
+          <div className="passenger-count">
+            <label htmlFor="departure">Yolcu sayısı</label>
+            <span>1 Yolcu / Ekonomi</span>
           </div>
         </div>
         <div className="button">
