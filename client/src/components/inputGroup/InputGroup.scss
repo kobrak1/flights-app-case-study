@@ -1,0 +1,39 @@
+@import "../../styles/responsive";
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  height: 5.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @include md {
+    width: 12rem;
+  }
+
+  label {
+    color: #999;
+    font-size: 1.3rem;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    background: none;
+
+    &::placeholder {
+      color: #dadada;
+    }
+  }
+
+  &:hover {
+    border: 1px solid rgb(237, 44, 44);
+  }
+}
