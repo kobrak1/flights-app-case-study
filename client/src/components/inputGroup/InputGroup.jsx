@@ -1,12 +1,32 @@
-import "./InputGroup.scss"
+import { useRef } from "react";
+import "./InputGroup.scss";
 
-const InputGroup = ({ type, htmlFor, label, placeholder }) => {
+const InputGroup = ({ type, htmlFor, label, placeholder, handleChange, value, disabled }) => {
+  const inputRef = useRef(null);
+
+  // this function makes the user focued on the input field when
+  // the user clickd on any part of the div
+  const handleFocus = () => {
+    if (inputRef.current.type === "date") {
+      inputRef.current.showPicker();
+    }
+    inputRef.current.focus();
+  };
+
   return (
-    <div className="input-group">
+    <div className="input-group" onClick={handleFocus}>
       <label htmlFor={htmlFor}>{label}</label>
-      <input type={type} id={htmlFor} placeholder={placeholder} />
+      <input
+        ref={inputRef}
+        id={htmlFor}
+        type={type}
+        onChange={handleChange}
+        value={value}
+        disabled={disabled}
+        placeholder={placeholder}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default InputGroup
+export default InputGroup;

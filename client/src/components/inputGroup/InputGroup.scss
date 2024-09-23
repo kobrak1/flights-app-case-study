@@ -5,20 +5,25 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  border: 1px solid #fff;
+  border: 1px solid #dadada;
   border-radius: 1rem;
   padding: 1rem;
   height: 5.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: border-color 0.3s ease;
 
   @include md {
     width: 12rem;
   }
 
+  &:focus-within {
+    box-shadow: 0 0 7px rgba(255, 255, 255, 0.8);
+  }
+
   label {
-    color: #999;
+    color: #dadada;
     font-size: 1.3rem;
   }
 
@@ -27,13 +32,17 @@
     outline: none;
     font-size: 1.6rem;
     background: none;
+    color: #fff;
 
     &::placeholder {
       color: #dadada;
     }
-  }
 
-  &:hover {
-    border: 1px solid rgb(237, 44, 44);
+    /* Change the calendar icon to white */
+    &[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(100%) brightness(100%);
+      font-size: 2rem;
+      cursor: pointer;
+    }
   }
 }
