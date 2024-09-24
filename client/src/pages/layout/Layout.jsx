@@ -1,13 +1,11 @@
 import Navbar from "../../components/navbar/Navbar";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import "./Layout.scss"
 
 const Layout = () => {
-  const location = useLocation()
-  const isHomePage = location.pathname === "/"
 
   return (
-    <div className={`layout ${isHomePage ? "home-page-background" : ""}`}>
+    <div className="layout">
       <div className="navbar">
         <Navbar />
       </div>
