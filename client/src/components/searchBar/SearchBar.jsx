@@ -1,10 +1,13 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { useFlight } from "../..//hooks/useFlight";
 import InputGroup from "../inputGroup/InputGroup";
 import "./SearchBar.scss";
+import PassengerNumber from "../passengerNumber/PassengerNumber";
 
 const SearchBar = memo(() => {
-  
+  const [isOpen, setIsOpen] = useState(false)
+  const openModal = () => setIsOpen(true)
+  const closeModal = () => setIsOpen(false)
   const {
     isRoundTrip,
     departure,
@@ -17,7 +20,6 @@ const SearchBar = memo(() => {
     handleDestinationChange,
     handleDateToChange,
     handleDateFromChange,
-    handlePassengers,
     handleSwapper,
     handleSubmit,
   } = useFlight();
@@ -90,7 +92,7 @@ const SearchBar = memo(() => {
             disabled={!isRoundTrip}
             placeholder=""
           />
-          <div className="passenger-count">
+          <div className="passenger-count" onClick={openModal}>
             <label htmlFor="departure">Yolcu sayısı</label>
             <span>{totalPassengers} Yolcu / Ekonomi</span>
           </div>
@@ -99,6 +101,7 @@ const SearchBar = memo(() => {
           Bilet bul
         </button>
       </form>
+      {isOpen && <PassengerNumber closeModal={closeModal} />}
     </div>
   );
 });
