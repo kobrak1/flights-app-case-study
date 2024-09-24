@@ -1,4 +1,4 @@
-﻿# Schiphol Flights Search Web Application
+﻿# Flight Booking Web Application
 
 This project is a web application built with React, SCSS, Node.js, Express.js, and MongoDB. It integrates with the [Schiphol Public Flights API](https://api.schiphol.nl/public-flights/flights) to allow users to search for flights based on their input. The application optimizes performance through techniques such as code splitting, lazy loading, and memoization. Input validation and sanitization are implemented to enhance security.
 
