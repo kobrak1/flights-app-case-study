@@ -2,7 +2,7 @@
 
 This project is a web application built with React, SCSS, Node.js, Express.js, and MongoDB. It integrates with the [Schiphol Public Flights API](https://api.schiphol.nl/public-flights/flights) to allow users to search for flights based on their input. The application optimizes performance through techniques such as code splitting, lazy loading, and memoization. Input validation and sanitization are implemented to enhance security.
 
-![homepage](https://github.com/user-attachments/assets/fa1b2cfc-1e8e-48de-8be4-b1629e759426)
+![home_page2](https://github.com/user-attachments/assets/712d2924-994e-4101-8162-066ea2fddc1c)
 
 ![flights_page](https://github.com/user-attachments/assets/02d7ac03-7d08-43ad-9826-c95485d46348)
 
