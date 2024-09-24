@@ -1,9 +1,9 @@
 import "./FlightCard.scss"
 
-const FlightCard = () => {
+const FlightCard = ({flight}) => {
   return (
     <div className="flight-card">
-      <div className="flight-travel">Istanbul-Madrid</div>
+      <div className="flight-travel">{flight.departure}-{flight.arrival}</div>
       <div className="flight-times">
         <div className="departure-details">
           <div className="departure">
@@ -16,7 +16,7 @@ const FlightCard = () => {
           </div>
         </div>
         <img className="line" src="/icons/right-arrow.png" alt="arrow not found" />
-        <div className="flight-duration">2h 25m (Nonstop)</div>
+        <div className="flight-duration">{flight.duration} (Nonstop)</div>
         <img className="line" src="/icons/right-arrow.png" alt="arrow not found" />
         <div className="arrival-details">
           <div className="arrival">
@@ -24,15 +24,15 @@ const FlightCard = () => {
             <span>Varış Yeri</span>
           </div>
           <div className="arrival-time">
-            <span className="a-time">9.30 AM</span>
-            <span className="a-airport">Airport: SAP</span>
+            <span className="a-time">{flight.arrivalTime}</span>
+            <span className="a-airport">Airport: {flight.arrivalAirport}</span>
           </div>
         </div>
       </div>
       <div className="price-details">
         <div className="price">
-            <span className="ticket-price">Fiyat: 2350 TRY</span>
-            <span className="direction">Çift yön</span>
+            <span className="ticket-price">Fiyat: {flight.price} TRY</span>
+            <span className="direction">{flight.direction}</span>
         </div>
         <button className="choose-btn">Seç</button>
       </div>
