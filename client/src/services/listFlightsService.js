@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'https://cors-anywhere.herokuapp.com/https://api.schiphol.nl/public-flights/flights?includedelays=false&page=0&sort=%2BscheduleTime',
+    baseURL: 'https://api.schiphol.nl/public-flights/flights?includedelays=false&page=0&sort=%2BscheduleTime',
     timeout: 5000,
     headers: {
         "resourceversion": "v4",
