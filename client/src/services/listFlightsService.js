@@ -25,9 +25,9 @@ export const listFlights = async ({ departure, destination, dateFrom, dateTo }) 
 
     try {
         const response = await api.get(`/?${params}`);
-        return response; // Assuming your response is already structured correctly
+        return response;
     } catch (error) {
         console.error('Error fetching flights:', error);
-        throw error; // Rethrow the error to handle it in the calling function
+        throw error;
     }
 };
