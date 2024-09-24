@@ -4,6 +4,9 @@ This project is a web application built with React, SCSS, Node.js, Express.js, a
 
 ![homepage](https://github.com/user-attachments/assets/fa1b2cfc-1e8e-48de-8be4-b1629e759426)
 
+![flights_page](https://github.com/user-attachments/assets/02d7ac03-7d08-43ad-9826-c95485d46348)
+
+![flights_page_2](https://github.com/user-attachments/assets/39e2b8b2-92ef-4e6b-9958-a5d7fe3d2e3f)
 
 
 ## Table of Contents
