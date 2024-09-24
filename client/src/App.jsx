@@ -3,10 +3,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./pages/layout/Layout.jsx";
 import FallBackUI from "./components/fallBackUI/FallBackUI.jsx";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary.jsx";
+import { FlightProvider } from "./context/FlightContext.jsx";
 
 // Lazy loaded components
 const HomePage = lazy(() => import("./pages/homePage/HomePage.jsx"));
-const ReservationPage = lazy(() => import("./pages/reservationPage/ReservationPage.jsx"));
+const ReservationPage = lazy(() =>
+  import("./pages/reservationPage/ReservationPage.jsx")
+);
 const FlightsPage = lazy(() => import("./pages/flightsPage/FlightsPage.jsx"));
 
 const App = () => {
@@ -17,7 +20,11 @@ const App = () => {
       children: [
         {
           path: "/",
-          element: <HomePage />,
+          element: (
+            <FlightProvider>
+              <HomePage />
+            </FlightProvider>
+          ),
         },
         {
           path: "/reservation",
@@ -25,7 +32,11 @@ const App = () => {
         },
         {
           path: "/flights",
-          element: <FlightsPage />,
+          element: (
+            <FlightProvider>
+              <FlightsPage />
+            </FlightProvider>
+          ),
         },
       ],
     },
@@ -33,9 +44,9 @@ const App = () => {
 
   return (
     <ErrorBoundary>
-      <Suspense fallback={<FallBackUI />}>
+        <Suspense fallback={<FallBackUI />}>
           <RouterProvider router={router} />
-      </Suspense>
+        </Suspense>
     </ErrorBoundary>
   );
 };
