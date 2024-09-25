@@ -5,7 +5,10 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
+
+//routers
 const flightsRouter = require('./controllers/flights')
+const proxyRouter = require('./controllers/proxy')
 
 
 logger.info('connecting to', config.MONGODB_URI)
@@ -24,7 +27,9 @@ app.use(cors()) // middleware to assure same origin policy
 app.use(express.static('build')) // middleware to view static files on backend
 app.use(express.json()) // middleware to parse JSON bodies
 app.use(middleware.requestLogger) // middleware to log request properties
+
 app.use('/api/flights', flightsRouter) // Use /api/flights route
+app.use('/api/fetch-flights', proxyRouter)
 
 app.use(middleware.unknownEndPoint) // handler of requests with unknown endpoint
 app.use(middleware.errorHandler) // handler of requests with unknown id
