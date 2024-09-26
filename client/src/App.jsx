@@ -28,7 +28,11 @@ const App = () => {
         },
         {
           path: "/reservation",
-          element: <ReservationPage />,
+          element: (
+            <FlightProvider>
+              <ReservationPage />
+            </FlightProvider>
+          ),
         },
         {
           path: "/flights",
