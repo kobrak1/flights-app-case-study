@@ -12,6 +12,8 @@ proxyRouter.get("/", async (req, res) => {
     },
     params: req.query
   })
+  res.setHeader("Access-Control-Allow-Origin", "*")
+  res.setHeader("Access-Control-Allow-Methods", "GET")
 
   return res.json(response.data)
 });
