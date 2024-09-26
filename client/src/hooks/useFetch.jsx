@@ -2,9 +2,9 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchFlights } from "../services/listFlightsService"
 import { message } from "antd"
 
-export const useFetchFlights = (destination, dateTo) => {
+export const useFetch = (destination, dateTo) => {
     return useQuery({
-        queryKey: ['flights', destination, dateTo],
+        queryKey: ['data', destination, dateTo],
         queryFn: ({ queryKey }) => {
           const [, destination, dateTo] = queryKey;
           return fetchFlights({ destination, dateTo });

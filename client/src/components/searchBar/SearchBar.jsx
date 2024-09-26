@@ -1,8 +1,8 @@
 import { memo, useState } from "react";
 import { useFlight } from "../..//hooks/useFlight";
 import InputGroup from "../inputGroup/InputGroup";
-import "./SearchBar.scss";
 import PassengerNumber from "../passengerNumber/PassengerNumber";
+import "./SearchBar.scss";
 
 const SearchBar = memo(() => {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,8 +20,8 @@ const SearchBar = memo(() => {
     handleDestinationChange,
     handleDateToChange,
     handleDateFromChange,
-    handleSwapper,
     handleSubmit,
+    handleSwapper,
   } = useFlight();
 
   //console.log("IsRoundTrip:", isRoundTrip);

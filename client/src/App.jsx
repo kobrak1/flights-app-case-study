@@ -1,18 +1,20 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { FlightProvider } from "./context/FlightContext.jsx";
+
+// Components
 import Layout from "./pages/layout/Layout.jsx";
 import FallBackUI from "./components/fallBackUI/FallBackUI.jsx";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary.jsx";
-import { FlightProvider } from "./context/FlightContext.jsx";
 
 // Lazy loaded components
 const HomePage = lazy(() => import("./pages/homePage/HomePage.jsx"));
-const ReservationPage = lazy(() =>
-  import("./pages/reservationPage/ReservationPage.jsx")
-);
+const ReservationPage = lazy(() => import("./pages/reservationPage/ReservationPage.jsx"))
 const FlightsPage = lazy(() => import("./pages/flightsPage/FlightsPage.jsx"));
 
 const App = () => {
+  const queryClient = new QueryClient();
   const router = createBrowserRouter([
     {
       path: "/",
@@ -38,7 +40,9 @@ const App = () => {
           path: "/flights",
           element: (
             <FlightProvider>
-              <FlightsPage />
+              <QueryClientProvider client={queryClient}>
+                  <FlightsPage />
+              </QueryClientProvider>
             </FlightProvider>
           ),
         },
@@ -48,9 +52,9 @@ const App = () => {
 
   return (
     <ErrorBoundary>
-        <Suspense fallback={<FallBackUI />}>
-          <RouterProvider router={router} />
-        </Suspense>
+      <Suspense fallback={<FallBackUI />}>
+        <RouterProvider router={router} />
+      </Suspense>
     </ErrorBoundary>
   );
 };
