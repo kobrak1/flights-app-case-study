@@ -5,6 +5,11 @@ const FlightCard = ({flight}) => {
     return flight.scheduleTime.slice(0, 5)
   }
 
+  function isNonStop (flight) {
+    const len =  flight.route['destinations'].length
+    return len === 1 ? 'NonStop' : 'Connecting Flight'
+  }
+
   return (
     <div className="flight-card">
       <div className="flight-travel">{flight.departure}-{flight.route['destinations'][0]}</div>
@@ -20,7 +25,7 @@ const FlightCard = ({flight}) => {
           </div>
         </div>
         <img className="line" src="/icons/right-arrow.png" alt="arrow not found" />
-        <div className="flight-duration">{handleTime(flight)} (Nonstop)</div>
+        <div className="flight-duration">{handleTime(flight)} ({isNonStop(flight)})</div>
         <img className="line" src="/icons/right-arrow.png" alt="arrow not found" />
         <div className="arrival-details">
           <div className="arrival">
