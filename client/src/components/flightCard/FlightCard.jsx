@@ -1,6 +1,10 @@
 import "./FlightCard.scss"
 
 const FlightCard = ({flight}) => {
+  function handleTime(flight) {
+    return flight.scheduleTime.slice(0, 5)
+  }
+
   return (
     <div className="flight-card">
       <div className="flight-travel">{flight.departure}-{flight.route['destinations'][0]}</div>
@@ -11,12 +15,12 @@ const FlightCard = ({flight}) => {
             <span>Çıkış Yeri</span>
           </div>
           <div className="departure-time">
-            <span className="time">{flight.scheduleTime}</span>
+            <span className="time">{handleTime(flight)}</span>
             <span className="airport">Airport: MXP</span>
           </div>
         </div>
         <img className="line" src="/icons/right-arrow.png" alt="arrow not found" />
-        <div className="flight-duration">{flight.scheduleTime} (Nonstop)</div>
+        <div className="flight-duration">{handleTime(flight)} (Nonstop)</div>
         <img className="line" src="/icons/right-arrow.png" alt="arrow not found" />
         <div className="arrival-details">
           <div className="arrival">
