@@ -10,7 +10,7 @@ const FlightsPage = () => {
 
   return (
     <div className="flights-page">
-      <SortField />
+      <SortField dateTo={dateTo}/>
       <div className="flights-list">
         {isLoading && <p>Loading...</p>}
         {isError && <p>Error occured!</p>}
