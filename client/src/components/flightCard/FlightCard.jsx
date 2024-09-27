@@ -6,8 +6,8 @@ const FlightCard = ({flight}) => {
   }
 
   function isNonStop (flight) {
-    const len =  flight.route['destinations'].length
-    return len === 1 ? 'NonStop' : 'Connecting Flight'
+    const data =  flight.route['destinations']
+    return data.length === 1 ? 'NonStop' : 'Connecting Flight'
   }
 
   return (
